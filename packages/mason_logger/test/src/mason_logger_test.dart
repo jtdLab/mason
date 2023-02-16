@@ -20,6 +20,7 @@ void main() {
       stderr = MockStdout();
 
       when(() => stdout.supportsAnsiEscapes).thenReturn(true);
+      when(() => stdout.terminalColumns).thenReturn(1);
     });
 
     group('level', () {
@@ -519,7 +520,6 @@ void main() {
     group('.progress', () {
       test('writes lines to stdout', () async {
         when(() => stdout.hasTerminal).thenReturn(true);
-        when(() => stdout.terminalColumns).thenReturn(16);
         await IOOverrides.runZoned(
           () async {
             const time = '(0.Xs)';
