@@ -20,6 +20,7 @@ void main() {
       stderr = MockStdout();
 
       when(() => stdout.supportsAnsiEscapes).thenReturn(true);
+      when(() => stdout.terminalColumns).thenReturn(1);
     });
 
     group('level', () {
