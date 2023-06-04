@@ -444,6 +444,7 @@ class BricksJson {
       final appData = environment['APPDATA']!;
       final appDataCacheDir =
           Directory(longPathPrefix + p.join(appData, 'Mason', 'Cache'));
+      print(appDataCacheDir.existsSync());
       if (appDataCacheDir.existsSync()) return appDataCacheDir;
       final localAppData = environment['LOCALAPPDATA']!;
       return Directory(longPathPrefix + p.join(localAppData, 'Mason', 'Cache'));
